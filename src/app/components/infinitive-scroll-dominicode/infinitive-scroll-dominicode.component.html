@@ -1,0 +1,30 @@
+<div
+  class="container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  (scrolled)="onScroll()"
+>
+  <h1 style="text-align: center">INFINITE SCROLL EXAMPLE</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"><strong>TEXT</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i" style="height: 200px">
+        <th scope="row">{{ i }}</th>
+        <th scope="row">{{ user.first_name }}</th>
+      </tr>
+    </tbody>
+  </table>
+  <button
+    [ngClass]="'no-hidden'"
+    *ngIf="showGoUpButton"
+    class="btn btn-dark"
+    (click)="scrollTop()"
+  >
+    GO UP
+  </button>
+</div>
